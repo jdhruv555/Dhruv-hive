@@ -1708,6 +1708,10 @@
     </footer>
 
     <script>
+        // Vercel Analytics
+        !function(){var e=window.navigator.userAgent.toLowerCase(),t="";e.indexOf("msie")>-1?t="ie":e.indexOf("firefox")>-1?t="firefox":e.indexOf("chrome")>-1?t="chrome":e.indexOf("safari")>-1?t="safari":e.indexOf("opera")>-1&&(t="opera"),window.va=window.va||function(){window.va.q=window.va.q||[],window.va.q.push(arguments)},window.va("set",{url:"https://void-opal.vercel.app",title:"VOID - Paradox & Theory",referrer:document.referrer,userAgent:t})}();
+        (function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://va.vercel-scripts.com/v1/analytics.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+
         // Simple toggle functionality
         const toggleOptions = document.querySelectorAll('.toggle-option');
         const paradoxSection = document.getElementById('paradox-section');
@@ -1757,6 +1761,14 @@
             option.addEventListener('click', () => {
                 const section = option.getAttribute('data-section');
                 switchSection(section);
+                
+                // Track section switches
+                window.va && window.va('track', {
+                    name: 'section_switch',
+                    properties: {
+                        section: section
+                    }
+                });
             });
         });
 
@@ -1802,6 +1814,14 @@
             btn.addEventListener('click', () => {
                 const target = btn.getAttribute('data-target');
                 showParadox(target);
+                
+                // Track paradox navigation
+                window.va && window.va('track', {
+                    name: 'paradox_navigation',
+                    properties: {
+                        paradox: target
+                    }
+                });
             });
         });
 
@@ -1838,6 +1858,14 @@
             btn.addEventListener('click', () => {
                 const target = btn.getAttribute('data-target');
                 showTheory(target);
+                
+                // Track theory navigation
+                window.va && window.va('track', {
+                    name: 'theory_navigation',
+                    properties: {
+                        theory: target
+                    }
+                });
             });
         });
 
