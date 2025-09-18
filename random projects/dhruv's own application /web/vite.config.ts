@@ -4,6 +4,8 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // Use repo base when deploying to GitHub Pages
+  base: process.env.GITHUB_PAGES ? '/Dhruv-hive/' : '/',
   plugins: [
     react(),
     VitePWA({
